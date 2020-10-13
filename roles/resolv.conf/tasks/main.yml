@@ -5,7 +5,19 @@
     no_extra_spaces: yes
     section: main
     option: dns
-    value: 8.8.8.8
+    value: none
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+  notify:
+    - reload NetworkManager
+
+---
+- name: deploy resolv.conf template
+  template:
+    src: roles/resolv.conf/templates/resolv.conf.j2
+    dest: /etc/resolv.conf
     owner: root
     group: root
     mode: 0644
