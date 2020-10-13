@@ -1,3 +1,4 @@
+---
 - name: make sure line 'dns=none' is set in /etc/NetworkManager/NetworkManager.conf
   community.general.ini_file:
     path: /etc/NetworkManager/NetworkManager.conf
@@ -13,7 +14,6 @@
   notify:
     - reload NetworkManager
 
----
 - name: deploy resolv.conf template
   template:
     src: roles/resolv.conf/templates/resolv.conf.j2
