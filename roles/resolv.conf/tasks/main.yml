@@ -1,12 +1,5 @@
----
-- name: Install  NetworkManager- 
-  apt:
-    name:
-      - network-manager
-    state: present
-    
 - name: make sure line 'dns=none' is set in /etc/NetworkManager/NetworkManager.conf
-  community.general.ini_file:
+  ini_file:
     path: /etc/NetworkManager/NetworkManager.conf
     state: present
     no_extra_spaces: yes
